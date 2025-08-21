@@ -162,3 +162,95 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 	});
 }
+
+ // Render Experience
+ function renderExperience() {
+	const el = document.getElementById('experience-list');
+	if (!el) return;
+	el.innerHTML = experienceData.map(item => `
+	  <li class="timeline-item">
+		<h4 class="h4 timeline-item-title">${item.title}</h4>
+		<span>${item.date}</span>
+		<p class="timeline-text">${item.desc}</p>
+	  </li>
+	`).join('');
+  }
+
+  // Render Mentoring
+  function renderMentoring() {
+	const el = document.getElementById('mentoring-list');
+	if (!el) return;
+	el.innerHTML = mentoringData.map(item => `
+	  <li class="timeline-item">
+		<h4 class="h4 timeline-item-title">${item.title}</h4>
+		${item.date ? `<span>${item.date}</span>` : ''}
+		<p class="timeline-text">${item.desc}</p>
+	  </li>
+	`).join('');
+  }
+
+  // Render Certificates
+  function renderCertificates() {
+	const el = document.getElementById('certificates-list');
+	if (!el) return;
+	el.innerHTML = certificatesData.map(item => `
+	  <li class="timeline-item">
+		<a href="${item.url}" target="_blank">
+		  <h4 class="h4 timeline-item-title">${item.title}</h4>
+		</a>
+	  </li>
+	`).join('');
+  }
+
+  // Render Projects
+  function renderProjects(filter = "all") {
+	const el = document.getElementById('project-list');
+	if (!el) return;
+	let filtered = filter === "all" ? projectsData : projectsData.filter(p => p.category === filter);
+	el.innerHTML = filtered.map(item => `
+	  <li class="project-item active" data-filter-item data-category="${item.category}">
+		<a href="${item.url}" target="_blank">
+		  <figure class="project-img">
+			<div class="project-item-icon-box">
+			  <i class="fa-solid fa-magnifying-glass"></i>
+			</div>
+			<img src="${item.img}" alt="${item.imgAlt}" loading="lazy" />
+		  </figure>
+		  <h3 class="project-title">${item.title}</h3>
+		  <p class="project-category">${item.desc}</p>
+		</a>
+	  </li>
+	`).join('');
+  }
+
+  // Filtering logic for projects
+  function setupProjectFilter() {
+	// Button filter
+	document.querySelectorAll('[data-filter-btn]').forEach(btn => {
+	  btn.addEventListener('click', function () {
+		document.querySelectorAll('[data-filter-btn]').forEach(b => b.classList.remove('active'));
+		this.classList.add('active');
+		const cat = this.getAttribute('data-category');
+		renderProjects(cat);
+	  });
+	});
+	// Select filter
+	document.querySelectorAll('[data-select-item]').forEach(btn => {
+	  btn.addEventListener('click', function () {
+		const cat = this.getAttribute('data-category');
+		renderProjects(cat);
+		// update select value
+		const val = this.textContent;
+		document.querySelector('.select-value').textContent = val;
+	  });
+	});
+  }
+
+  // Initial render
+  document.addEventListener('DOMContentLoaded', function () {
+	renderExperience();
+	renderMentoring();
+	renderCertificates();
+	renderProjects();
+	setupProjectFilter();
+  });
