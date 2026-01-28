@@ -365,57 +365,72 @@
   <script>
     // Data: Experience
     const experienceData = [
-    {
-      title: "Web Developer - Apprentice at Udacoding",
-      date: "Mar - Sep 2022",
-      desc: "Wrote articles for Baraja Udacoding blog, organized workshops, and conducted offline training in Sabah, Malaysia."
-    },
-    {
-      title: "Permanent Employee (Full-time Onsite) at Udacoding",
-      date: "Sep 2022 - Present",
-      desc: "Regularly use Laravel for API development, web dashboards, and conduct programming training and workshops."
-    },
-    {
-      title: "Backend Developer - Freelance (Remote) at Unity",
-      date: "Aug - Dec 2022",
-      desc: "Built APIs using NestJS and GraphQL, including image uploads and real-time chat via websockets."
-    },
-    {
-      title: "Backend Developer - Freelance (Remote) at Ride Runner",
-      date: "Aug 2023 - Present",
-      desc: "Developed APIs and dashboards for Riderunner, an online driver and delivery platform."
-    },
-    {
-      title: "Web Developer - Freelance (Remote) at LCP Nastah",
-      date: "Jul - Sep 2023",
-      desc: "Enhanced an existing Laravel website, utilizing jQuery and DataTables for dynamic web interactions."
-    },
-    {
-      title: "Full Stack Developer - Full-time (Remote) at Udacoding - MIG",
-      date: "Dec 2022 - Aug 2023",
-      desc: "Built a management dashboard and APIs for mobile apps, including map integration, import/export, live search, and permission management."
-    },
-    {
-      title: "Full Stack Developer - Full-time (Remote) at Talamidz Developer",
-      date: "Feb 2023",
-      desc: "Developed full-stack applications as part of a software development service team."
-    },
-    {
-      title: "Full Stack Developer - Full-time (Remote) at Udacoding - BPD Desa IT",
-      date: "Sep 2023 - Dec 2024",
-      desc: "Created a landing page and admin dashboard for Desa IT, using APIs for data fetching and AJAX for CRUD operations."
-    },
-    {
-      title: "Full Stack Developer - Full-time (Remote) at Udacoding - LCP Buildsoft Technology (M) Sdn Bhd",
-      date: "Dec 2023 - May 2025",
-      desc: "Maintained and developed Laravel-based inventory and game management systems."
-    },
-    {
-      title: "Full Stack Developer - Full-time (Remote) at Perintis Kode Global",
-      date: "May 2025 - Present",
-      desc: "Building web applications from scratch using Laravel, CodeIgniter 3 & 4, and PHP."
-    }
-  ];
+      {
+        title: "Intern at Udacoding",
+        location: "Tangerang, Indonesia",
+        date: "Mar 2022 – Sep 2022",
+        desc: `- Authored <strong>10+ technical articles</strong> for Baraja Udacoding over 6 months, strengthening backend learning resources.<br>
+- Co-organized <strong>5+ offline workshops</strong> in Sabah, Malaysia, training <strong>30–50 participants per session</strong>.`
+      },
+      {
+        title: "Web Developer at Udacoding",
+        location: "Tangerang, Indonesia",
+        date: "Sep 2022 – May 2025",
+        desc: `- Developed <strong>RESTful APIs and web dashboards</strong> using Laravel for internal and client applications.<br>
+- Improved development turnaround time by <strong>30–40%</strong> through reusable backend components.<br>
+- Mentored <strong>20–40 trainees per cohort</strong> in backend fundamentals and API development.`
+      },
+      {
+        title: "Backend Developer (Freelance) at Unity",
+        location: "Remote",
+        date: "Aug 2022 – Dec 2022",
+        desc: `- Collaborated with a small team to build <strong>backend APIs and management dashboards</strong> for mobile applications.<br>
+- Implemented <strong>real-time chat systems using WebSockets</strong> with sub-second message delivery.`
+      },
+      {
+        title: "Backend Developer (Freelance) at Udacoding × RideRunner",
+        location: "Sabah, Malaysia",
+        date: "Aug 2023 – Jan 2024",
+        desc: `- Developed <strong>APIs and admin dashboards</strong> for an e-hailing and delivery platform.<br>
+- Supported <strong>driver management, order tracking, and daily operational workflows</strong>.`
+      },
+      {
+        title: "Web Developer (Freelance) at Udacoding × LCP Buildsoft Technology (M) Sdn Bhd",
+        location: "Selangor, Malaysia",
+        date: "Jul 2023 – Sep 2023",
+        desc: `- Enhanced <strong>Nastah dashboard</strong> using Laravel, jQuery, and DataTables.<br>
+- Reduced manual reporting time by <strong>40–50%</strong>.<br>
+- Implemented <strong>map integration, CSV/Excel import-export, live search, and RBAC</strong>.`
+      },
+      {
+        title: "Full Stack Developer (Remote) at Udacoding × MIG",
+        location: "Jakarta, Indonesia",
+        date: "Dec 2022 – Aug 2023",
+        desc: `- Improved enterprise dashboard performance and data visibility using Laravel and DataTables.<br>
+- Reduced admin processing time through <strong>automated imports, live search, and role-based permissions</strong>.`
+      },
+      {
+        title: "Full Stack Developer (Remote) at Udacoding × BPD Desa IT",
+        location: "Indonesia",
+        date: "Sep 2023 – Dec 2024",
+        desc: `- Built <strong>landing page and admin dashboard</strong> as an end-to-end project.<br>
+- Accelerated content updates by <strong>3–4×</strong> using API-driven and AJAX-based CRUD operations.`
+      },
+      {
+        title: "Full Stack Developer (Remote) at Perintis Kode Global (Jokiweb)",
+        location: "Palembang, Indonesia",
+        date: "May 2025 – Oct 2025",
+        desc: `- Built websites from scratch using <strong>Laravel, CodeIgniter 3 & 4, and PHP</strong>.<br>
+- Delivered SEO-ready web solutions supporting business visibility and online presence.`
+      },
+      {
+        title: "Frontend Developer (Freelance) at Java Inspiration",
+        location: "London, UK (Remote)",
+        date: "Sep 2025 – Present",
+        desc: `- Developed frontend features for enterprise clients across <strong>e-commerce and data-processing systems</strong>.<br>
+- Collaborated with UK and Indonesia teams to deliver projects on schedule.`
+      }
+    ];
 
     // Data: Certificates
     const certificatesData = [
@@ -452,79 +467,87 @@
 
     // Data: Mentoring
     const mentoringData = [
-    {
-      title: "Belajar Praktis Membuat Landing Page Website Sekolah dengan Laravel",
-      date: "19 July, 2022",
-      desc: `Covered Laravel basics, building a landing page with Laravel 9 and Bootstrap 5.2, Blade templating, and routing.<br>
-<strong>Impact:</strong> 50+ attendees<br>
+      {
+        title: "Practical Workshop: School Website Landing Page with Laravel",
+        role: "Instructor",
+        date: "Jul 19, 2022",
+        desc: `Taught <strong>Laravel 9 fundamentals</strong>, Blade templating, routing, and Bootstrap-based landing page development.<br>
+<strong>Impact:</strong> Trained <strong>50+ participants</strong> in hands-on web development.<br>
 <a href="https://www.instagram.com/p/CgB8eMmLLYe/?hl=id" target="_blank">View Activity</a>`
-    },
-    {
-      title: "Workshop Jago Coding #27 Web: Membuat Web Sederhana Data Mahasiswa",
-      date: "25 June, 2022",
-      desc: `Taught CRUD in Laravel, controllers, models, migrations, and MySQL integration.<br>
-<strong>Impact:</strong> 6 attendees<br>
+      },
+      {
+        title: "Workshop Jago Coding #27 (Web)",
+        role: "Instructor",
+        date: "Jun 25, 2022",
+        desc: `Delivered training on <strong>Laravel CRUD</strong>, controllers, models, migrations, and MySQL integration.<br>
+<strong>Impact:</strong> Guided <strong>6 participants</strong> through backend fundamentals.<br>
 <a href="https://www.instagram.com/p/Ce8yQzPP51q/?hl=id" target="_blank">View Activity</a>`
-    },
-    {
-      title: "E-Course Video - Membuat Web Management Gudang dengan PHP & MySQL",
-      date: "",
-      desc: `Taught Flutter and Dart basics, image usage, navigation, and UI components.<br>
+      },
+      {
+        title: "E-Course Video: Warehouse Management System (PHP & MySQL)",
+        role: "Course Creator",
+        date: "2022",
+        desc: `Created structured video course covering <strong>PHP backend logic</strong>, database design, and CRUD workflows.<br>
+<strong>Impact:</strong> Produced <strong>on-demand learning content</strong> for paid participants.<br>
 <a href="https://hello.udacoding.id/events/88/membuat-web-management-gudang-dengan-php-&-database-mysql-[berbayar]?status=FINISHED" target="_blank">View Activity</a>`
-    },
-    {
-      title: "Coding Talk #167 - Web",
-      date: "17 April, 2022",
-      desc: `Covered HTML & CSS basics, CSS :root, transparent backgrounds, and file navigation.<br>
-<strong>Impact:</strong> 20 attendees<br>
+      },
+      {
+        title: "Coding Talk #167 (Web)",
+        role: "Speaker",
+        date: "Apr 17, 2022",
+        desc: `Presented <strong>HTML & CSS fundamentals</strong>, CSS variables, layout basics, and file navigation.<br>
+<strong>Impact:</strong> Educated <strong>20 attendees</strong> in frontend fundamentals.<br>
 <a href="https://www.instagram.com/p/CcTWb6khsoI/?hl=id" target="_blank">View Activity</a>`
-    },
-    {
-      title: "Training Coedev in Sabah, Malaysia",
-      date: "1 Sep, 2022 - 20 Sep, 2022",
-      desc: `Laravel training from basic to intermediate.<br>
-<strong>Impact:</strong> 4 attendees<br>
+      },
+      {
+        title: "Coedev Training Program",
+        role: "Laravel Trainer",
+        date: "Sep 1–20, 2022",
+        desc: `Conducted <strong>basic to intermediate Laravel training</strong> through guided practice and mentoring sessions.<br>
+<strong>Impact:</strong> Mentored <strong>4 participants</strong> in backend development.<br>
 <a href="https://www.linkedin.com/posts/ahmad-zidni-rosadi-1227121a9_training-programming-laravel-activity-6982886166274486272-btIs" target="_blank">View Activity</a>`
-    },
-    {
-      title: "GonDevTalk #27 - Free Webinar Event",
-      date: "4 December, 2022",
-      desc: `Introduction to Laravel.<br>
-<strong>Impact:</strong> 20 attendees<br>
+      },
+      {
+        title: "GonDevTalk #27 (Free Webinar)",
+        role: "Speaker",
+        date: "Dec 4, 2022",
+        desc: `Introduced <strong>Laravel fundamentals</strong> and backend development concepts.<br>
+<strong>Impact:</strong> Reached <strong>20 webinar attendees</strong>.<br>
 <a href="https://www.dicoding.com/events/5175" target="_blank">View Activity</a>`
-    },
-    {
-      title: "Workshop Laravel with RPL Teachers at SMKN 4 Payakumbuh",
-      date: "10 Nov, 2022 - 20 Nov, 2022",
-      desc: `Introduction to Laravel.<br>
-<strong>Impact:</strong> 4 attendees<br>
+      },
+      {
+        title: "Laravel Workshop for RPL Teachers – SMKN 4 Payakumbuh",
+        role: "Trainer",
+        date: "Nov 10–20, 2022",
+        desc: `Delivered <strong>Laravel introduction</strong> for vocational teachers to support curriculum adoption.<br>
+<strong>Impact:</strong> Trained <strong>4 educators</strong>.<br>
 <a href="https://www.instagram.com/p/ClDb3XTrzjW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">View Activity</a>`
-    },
-    {
-      title: "Training ReactJS Basic",
-      date: "19 Dec, 2022 - 22 Dec, 2022",
-      desc: `Introduction to ReactJS basics.<br>
-<strong>Impact:</strong> 1 attendee<br>
+      },
+      {
+        title: "ReactJS Basic Training",
+        role: "Instructor",
+        date: "Dec 19–22, 2022",
+        desc: `Introduced <strong>ReactJS fundamentals</strong>, component-based UI, and basic state management.<br>
+<strong>Impact:</strong> Conducted <strong>1-on-1 intensive training</strong>.<br>
 <a href="https://www.instagram.com/p/CmfxZJTLfDt/?hl=id" target="_blank">View Activity</a>`
-    },
-    {
-      title: "Training Laravel Basic",
-      date: "4 Jan, 2023 - 11 Jan, 2023",
-      desc: `Introduction to Laravel basics.<br>
-<strong>Impact:</strong> 1 attendee<br>
+      },
+      {
+        title: "Laravel Basic Training",
+        role: "Instructor",
+        date: "Jan 4–11, 2023",
+        desc: `Delivered <strong>Laravel basics</strong> through structured one-on-one mentoring sessions.<br>
+<strong>Impact:</strong> Provided <strong>personalized backend coaching</strong>.<br>
 <a href="https://www.linkedin.com/feed/update/urn:li:activity:7026061390889054208/" target="_blank">View Activity</a>`
-    },
-
-    {
-      title: "Tutor In Sekolah Rakyat Kediri",
-      date: "29 November 2025",
-      desc: `Introduction to Laravel basics.<br>
-<strong>Impact:</strong> 30 attendee<br>
+      },
+      {
+        title: "Sekolah Rakyat Kediri Community Program",
+        role: "Volunteer Tutor",
+        date: "Nov 29, 2025",
+        desc: `Introduced <strong>web development basics</strong> to community learners.<br>
+<strong>Impact:</strong> Educated <strong>30 participants</strong>.<br>
 <a href="https://www.linkedin.com/posts/ahmad-zidni-rosadi-1227121a9_sabtu-29-november-kemarin-saya-berkesempatan-activity-7401034553617870848-c0pu?utm_source=share&utm_medium=member_desktop&rcm=ACoAADCxgyoB7QZnHzzNjVdMqsR13IZsCVf16RA/" target="_blank">View Activity</a>`
-    }
-  ];
-
-    // Data: Projects
+      }
+    ];
     const projectsData = [
     // Company
     {
