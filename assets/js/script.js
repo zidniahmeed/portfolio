@@ -13,9 +13,11 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function() {
-	elementToggleFunc(sidebar);
-});
+if (sidebarBtn) {
+	sidebarBtn.addEventListener("click", function() {
+		elementToggleFunc(sidebar);
+	});
+}
 
 
 // testimonials variables
@@ -207,7 +209,10 @@ for (let i = 0; i < navigationLinks.length; i++) {
 	const el = document.getElementById('project-list');
 	if (!el) return;
 	let filtered = filter === "all" ? projectsData : projectsData.filter(p => p.category === filter);
-	el.innerHTML = filtered.map(item => `
+	el.innerHTML = filtered.map(item => {
+	  const isGitHubPersonal = item.category === "personal" && item.url.includes("github");
+	  const titleToShow = isGitHubPersonal ? `${item.title} (GitHub)` : item.title;
+	  return `
 	  <li class="project-item active" data-filter-item data-category="${item.category}">
 		<a href="${item.url}" target="_blank">
 		  <figure class="project-img">
@@ -216,11 +221,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
 			</div>
 			<img src="${item.img}" alt="${item.imgAlt}" loading="lazy" />
 		  </figure>
-		  <h3 class="project-title">${item.title}</h3>
+		  <h3 class="project-title">${titleToShow}</h3>
 		  <p class="project-category">${item.desc}</p>
 		</a>
 	  </li>
-	`).join('');
+	`;
+	}).join('');
   }
 
   // Filtering logic for projects

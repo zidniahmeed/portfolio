@@ -264,12 +264,8 @@ main {
 /*-----------------------------------*\ #SIDEBAR \*-----------------------------------*/
 .sidebar {
   margin-bottom: 15px;
-  max-height: 112px;
-  overflow: hidden;
+  max-height: max-content;
   transition: var(--transition-2);
-}
-.sidebar.active {
-  max-height: 405px;
 }
 .sidebar-info {
   position: relative;
@@ -301,6 +297,7 @@ main {
   box-shadow: 0 1px 8px 0 rgba(0,255,208,0.05);
 }
 .info_more-btn {
+  display: none;
   position: absolute;
   top: -15px;
   right: -15px;
@@ -335,13 +332,9 @@ main {
   display: none;
 }
 .sidebar-info_more {
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-2);
-}
-.sidebar.active .sidebar-info_more {
   opacity: 1;
   visibility: visible;
+  transition: var(--transition-2);
 }
 .contacts-list {
   display: grid;
@@ -1161,11 +1154,8 @@ textarea.form-input::-webkit-resizer {
     margin-bottom: 100px;
   }
   .sidebar {
-    max-height: 180px;
+    max-height: max-content;
     margin-bottom: 30px;
-  }
-  .sidebar.active {
-    max-height: 584px;
   }
   .sidebar-info {
     gap: 25px;
