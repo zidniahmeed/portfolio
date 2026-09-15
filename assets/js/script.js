@@ -1,262 +1,221 @@
-'use strict';
+// data.js is loaded before this script, so experienceData, projectsData, mentoringData are available.
 
+gsap.registerPlugin(ScrollTrigger);
 
-// element toggle function
-const elementToggleFunc = function(elem) {
-	elem.classList.toggle("active");
-	console.log('test')
+// Render Experience
+function renderExperience() {
+  const el = document.getElementById('experience-list');
+  if (!el) return;
+  el.innerHTML = experienceData.map((item, index) => `
+    <div class="timeline-item opacity-0 transform translate-y-4" data-index="${index}">
+      <h3 class="timeline-title text-xl font-bold text-zinc-900 mb-1">${item.title}</h3>
+      <div class="timeline-date text-indigo-600 font-mono text-sm mb-2">${item.date} | ${item.location || 'Remote'}</div>
+      <p class="timeline-desc text-zinc-700 text-sm leading-relaxed">${item.desc}</p>
+    </div>
+  `).join('');
 }
 
+// Render Projects
+function renderProjects(filter = "all") {
+  const el = document.getElementById('project-list');
+  if (!el) return;
+  let filtered = filter === "all" ? projectsData : projectsData.filter(p => p.category === filter);
+  el.innerHTML = filtered.map(item => {
+    const isGitHubPersonal = item.category === "personal" && item.url.includes("github");
+    const titleToShow = isGitHubPersonal ? `${item.title} <i class="fa-brands fa-github ml-1"></i>` : item.title;
+    return `
+    <a href="${item.url}" target="_blank" class="project-card relative block group opacity-0 transform translate-y-4">
+      
+      <!-- Sharp Image Container -->
+      <div class="w-full h-72 bg-zinc-200 border-2 border-zinc-900 relative overflow-hidden">
+        <img src="${item.img}" alt="${item.imgAlt}" loading="lazy" class="w-full h-full object-cover object-top filter grayscale-0 xl:grayscale xl:group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+        
+        <!-- Category Tag (Sharp Ribbon) -->
+        <div class="absolute top-4 -left-2 bg-indigo-500 text-white text-[0.65rem] font-bold uppercase tracking-widest px-4 py-1 border-2 border-zinc-900 shadow-[2px_2px_0_0_#18181b]">
+          ${item.category}
+        </div>
+      </div>
 
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+      <!-- Overlapping Brutalist Content Box -->
+      <div class="relative -mt-12 mx-4 bg-white border-2 border-zinc-900 p-6 shadow-[6px_6px_0_0_#18181b] group-hover:shadow-[2px_2px_0_0_#18181b] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-300 flex flex-col z-10">
+        
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-bold text-zinc-900 font-serif">${titleToShow}</h3>
+          <div class="w-8 h-8 bg-zinc-900 text-white flex items-center justify-center transform -rotate-45 group-hover:rotate-0 transition-all border-2 border-zinc-900 flex-shrink-0 ml-4">
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </div>
+        </div>
+        
+        <p class="text-sm text-zinc-700 leading-relaxed mb-4 line-clamp-2">${item.desc}</p>
+        
+        <!-- Tech Stack -->
+        ${item.tech ? `<div class="flex flex-wrap gap-2 pt-4 border-t-2 border-zinc-900 border-dashed mt-auto">
+          ${item.tech.map(t => `<span class="text-zinc-900 bg-zinc-100 border border-zinc-900 text-[0.65rem] font-bold uppercase tracking-wider px-2 py-0.5">${t}</span>`).join('')}
+        </div>` : ''}
 
-// sidebar toggle functionality for mobile
-if (sidebarBtn) {
-	sidebarBtn.addEventListener("click", function() {
-		elementToggleFunc(sidebar);
-	});
+      </div>
+    </a>
+  `;
+  }).join('');
+
+  // Re-trigger GSAP for new items
+  animateProjects();
 }
 
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalName = document.querySelector("[data-modal-name]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function() {
-	modalContainer.classList.toggle("active");
-	overlay.classList.toggle("active");
+// Render Mentoring
+function renderMentoring() {
+  const el = document.getElementById('mentoring-list');
+  if (!el) return;
+  el.innerHTML = mentoringData.map(item => `
+    <div class="mentoring-card opacity-0 transform translate-y-4 p-6 bg-white/5 border border-white/10 backdrop-blur-xl rounded-xl border border-white/10">
+      <h3 class="text-lg font-bold text-zinc-900 mb-1">${item.title}</h3>
+      <p class="text-sm text-indigo-600 mb-3">${item.role} ${item.date ? `| ${item.date}` : ''}</p>
+      <p class="text-sm text-zinc-700">${item.desc}</p>
+    </div>
+  `).join('');
 }
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-	testimonialsItem[i].addEventListener("click", function() {
-
-		modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-		modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-		modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-		modalName.innerHTML = this.querySelector("[data-testimonials-name]").innerHTML;
-		modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-		testimonialsModalFunc();
-
-	});
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function() {
-	elementToggleFunc(this);
-});
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-	selectItems[i].addEventListener("click", function() {
-
-		let selectedValue = this.innerText.toLowerCase();
-		selectValue.innerText = this.innerText;
-		elementToggleFunc(select);
-		filterFunc(selectedValue);
-
-	});
-}
-
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function(selectedValue) {
-console.log('selectedValue ' + selectedValue)
-for (let i = 0; i < filterItems.length; i++) {
-	
-	if (selectedValue === "all") {
-			filterItems[i].classList.add("active");
-		} else if (selectedValue === filterItems[i].dataset.category) {
-			
-			filterItems[i].classList.add("active");
-		} else {
-
-			filterItems[i].classList.remove("active");
-		}
-
-	}
-
-}
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-	filterBtn[i].addEventListener("click", function() {
-
-		let selectedValue = this.innerText.toLowerCase();
-		selectValue.innerText = this.innerText;
-		filterFunc(selectedValue);
-
-		lastClickedBtn.classList.remove("active");
-		this.classList.add("active");
-		lastClickedBtn = this;
-
-	});
-
-}
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-	formInputs[i].addEventListener("input", function() {
-
-		// check form validation
-		if (form.checkValidity()) {
-			formBtn.removeAttribute("disabled");
-		} else {
-			formBtn.setAttribute("disabled", "");
-		}
-
-	});
-}
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-	navigationLinks[i].addEventListener("click", function() {
-
-		for (let i = 0; i < pages.length; i++) {
-			if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-				pages[i].classList.add("active");
-				navigationLinks[i].classList.add("active");
-				window.scrollTo(0, 0);
-			} else {
-				pages[i].classList.remove("active");
-				navigationLinks[i].classList.remove("active");
-			}
-		}
-
-	});
-}
-
- // Render Experience
- function renderExperience() {
-	const el = document.getElementById('experience-list');
-	if (!el) return;
-	el.innerHTML = experienceData.map(item => `
-	  <li class="timeline-item">
-		<h4 class="h4 timeline-item-title">${item.title}</h4>
-		<span>${item.date}</span>
-		<p class="timeline-text">${item.desc}</p>
-	  </li>
-	`).join('');
-  }
-
-  // Render Mentoring
-  function renderMentoring() {
-	const el = document.getElementById('mentoring-list');
-	if (!el) return;
-	el.innerHTML = mentoringData.map(item => `
-	  <li class="timeline-item">
-		<h4 class="h4 timeline-item-title">${item.title}</h4>
-		${item.date ? `<span>${item.date}</span>` : ''}
-		<p class="timeline-text">${item.desc}</p>
-	  </li>
-	`).join('');
-  }
-
-  // Render Certificates
-  function renderCertificates() {
-	const el = document.getElementById('certificates-list');
-	if (!el) return;
-	el.innerHTML = certificatesData.map(item => `
-	  <li class="timeline-item">
-		<a href="${item.url}" target="_blank">
-		  <h4 class="h4 timeline-item-title">${item.title}</h4>
-		</a>
-	  </li>
-	`).join('');
-  }
-
-  // Render Projects
-  function renderProjects(filter = "all") {
-	const el = document.getElementById('project-list');
-	if (!el) return;
-	let filtered = filter === "all" ? projectsData : projectsData.filter(p => p.category === filter);
-	el.innerHTML = filtered.map(item => {
-	  const isGitHubPersonal = item.category === "personal" && item.url.includes("github");
-	  const titleToShow = isGitHubPersonal ? `${item.title} (GitHub)` : item.title;
-	  return `
-	  <li class="project-item active" data-filter-item data-category="${item.category}">
-		<a href="${item.url}" target="_blank">
-		  <figure class="project-img">
-			<div class="project-item-icon-box">
-			  <i class="fa-solid fa-magnifying-glass"></i>
-			</div>
-			<img src="${item.img}" alt="${item.imgAlt}" loading="lazy" />
-		  </figure>
-		  <h3 class="project-title">${titleToShow}</h3>
-		  <p class="project-category">${item.desc}</p>
-		</a>
-	  </li>
-	`;
-	}).join('');
-  }
-
-  // Filtering logic for projects
-  function setupProjectFilter() {
-	// Button filter
-	document.querySelectorAll('[data-filter-btn]').forEach(btn => {
-	  btn.addEventListener('click', function () {
-		document.querySelectorAll('[data-filter-btn]').forEach(b => b.classList.remove('active'));
-		this.classList.add('active');
-		const cat = this.getAttribute('data-category');
-		renderProjects(cat);
-	  });
-	});
-	// Select filter
-	document.querySelectorAll('[data-select-item]').forEach(btn => {
-	  btn.addEventListener('click', function () {
-		const cat = this.getAttribute('data-category');
-		renderProjects(cat);
-		// update select value
-		const val = this.textContent;
-		document.querySelector('.select-value').textContent = val;
-	  });
-	});
-  }
-
-  // Initial render
-  document.addEventListener('DOMContentLoaded', function () {
-	renderExperience();
-	renderMentoring();
-	renderCertificates();
-	renderProjects();
-	setupProjectFilter();
+// Filtering setup
+function setupProjectFilter() {
+  const btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      btns.forEach(b => {
+      b.classList.remove('active', 'bg-indigo-500', 'text-white', 'shadow-[4px_4px_0_0_#18181b]');
+      b.classList.add('bg-white', 'text-zinc-900', 'shadow-[2px_2px_0_0_#18181b]', 'hover:shadow-[4px_4px_0_0_#18181b]', 'hover:-translate-y-0.5');
+    });
+    this.classList.remove('bg-white', 'text-zinc-900', 'shadow-[2px_2px_0_0_#18181b]', 'hover:shadow-[4px_4px_0_0_#18181b]', 'hover:-translate-y-0.5');
+    this.classList.add('active', 'bg-indigo-500', 'text-white', 'shadow-[4px_4px_0_0_#18181b]');
+      const cat = this.getAttribute('data-filter');
+      renderProjects(cat);
+    });
   });
+}
+
+// Active Nav Links
+function setupScrollSpy() {
+  const sections = document.querySelectorAll('section, header, footer');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id') || 'home';
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('text-brand');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('text-brand');
+      }
+    });
+  });
+}
+
+// Animations
+function initAnimations() {
+
+  // Professional Ambient Background Animations
+  gsap.to('.ambient-orb', {
+    x: 'random(-50, 50)',
+    y: 'random(-50, 50)',
+    scale: 'random(0.95, 1.05)',
+    duration: 'random(20, 30)',
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+    stagger: 5
+  });
+
+  
+
+  // Hero
+  gsap.from(".hero-title", { opacity: 0, y: 50, duration: 1, ease: "power3.out" });
+  gsap.from(".hero-subtitle", { opacity: 0, y: 30, duration: 1, delay: 0.3, ease: "power3.out" });
+  gsap.from(".hero-cta", { opacity: 0, y: 30, duration: 1, delay: 0.5, ease: "power3.out" });
+  gsap.from(".avatar-container", { opacity: 0, scale: 0.9, duration: 1, delay: 0.4, ease: "power3.out" });
+
+  // About Section
+  gsap.utils.toArray(".about-text p").forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 20 },
+      { scrollTrigger: { trigger: ".about", start: "top 80%", toggleActions: "play none none reverse" }, opacity: 1, y: 0, duration: 0.8, delay: i * 0.2 }
+    );
+  });
+
+  gsap.utils.toArray(".stat-item").forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30 },
+      { scrollTrigger: { trigger: ".about-stats", start: "top 85%", toggleActions: "play none none reverse" }, opacity: 1, y: 0, duration: 0.6, delay: i * 0.15 }
+    );
+  });
+
+  // Tech Stack
+  gsap.utils.toArray(".tech-item").forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, scale: 0.5, y: 50, rotation: 15 },
+      { scrollTrigger: { trigger: "#tech-stack", start: "top 80%", toggleActions: "play none none reverse" }, opacity: 1, scale: 1, y: 0, rotation: 0, duration: 0.8, ease: "back.out(1.7)", delay: i * 0.1 }
+    );
+  });
+
+  // Experience
+  gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+    gsap.to(item, {
+      scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play none none reverse" },
+      opacity: 1, y: 0, duration: 0.6
+    });
+  });
+
+  // Mentoring
+  gsap.utils.toArray('.mentoring-card').forEach((item, i) => {
+    gsap.to(item, {
+      scrollTrigger: { trigger: item, start: "top 90%", toggleActions: "play none none reverse" },
+      opacity: 1, y: 0, duration: 0.6
+    });
+  });
+}
+
+function animateProjects() {
+  // Kill old triggers to avoid duplicates on filter
+  ScrollTrigger.getAll().forEach(t => {
+    if (t.trigger && t.trigger.classList && t.trigger.classList.contains('project-card')) {
+      t.kill();
+    }
+  });
+
+  gsap.utils.toArray('.project-card').forEach((card, i) => {
+    gsap.to(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "power2.out",
+      delay: i * 0.05
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupProjectFilter();
+  setupScrollSpy();
+
+  // Simulate network loading to show skeleton effect
+  setTimeout(() => {
+    renderExperience();
+    renderProjects();
+    renderMentoring();
+
+    // Initialize GSAP scroll animations after DOM is updated
+    setTimeout(initAnimations, 100);
+  }, 1200);
+});

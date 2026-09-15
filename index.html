@@ -1,823 +1,470 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Ahmad Zidni Rosadi, zidniahmeed@gmail.com" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ahmad Zidni Rosadi, zidniahmeed@gmail.com">
   <meta name="description"
-    content="Ahmad Zidni Rosadi, Web Developer & Laravel Expert. Explore my portfolio, CV, projects, and skills. Let's connect and collaborate!" />
-  <meta name="keywords"
-    content="Ahmad Zidni Rosadi, portfolio, resume, cv, Laravel, Vue, React, Jquery, developer, Web developer, Full Stack" />
-  <title>Ahmad Zidni Rosadi | Web Developer & Laravel Expert</title>
-  <link rel="icon" type="image/x-icon" href="assets/images/favaicon.webp" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    content="Ahmad Zidni Rosadi, Web Developer & Laravel Expert. Explore my portfolio, CV, projects, and skills.">
+  <meta name="keywords" content="Ahmad Zidni Rosadi, portfolio, resume, cv, Laravel, Vue, React, developer, Full Stack">
 
-  <!-- JavaScript -->
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Ahmad Zidni Rosadi | Web Developer & Laravel Expert">
+  <meta property="og:description" content="Explore my portfolio, CV, projects, and skills.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zidniahmeed.github.io/portfolio/">
+  <meta property="og:image" content="https://zidniahmeed.github.io/portfolio/assets/images/my-avatar.webp">
+
+  <title>Ahmad Zidni Rosadi | Full Stack Web Developer</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favaicon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            brand: '#4F46E5', // emerald-500
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Devicon for Tech Stack -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
-  <main>
-    <!-- Sidebar -->
-    <aside class="sidebar" data-sidebar>
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <img src="assets/images/my-avatar.webp" alt="Ahmad Zidni Rosadi" />
-        </figure>
-        <div class="info-content">
-          <h1 class="name" title="Ahmad Zidni Rosadi">Ahmad Zidni Rosadi</h1>
-          <p class="title">Web Developer & Laravel Expert</p>
-        </div>
-      </div>
-      <div class="sidebar-info_more">
-        <div class="separator"></div>
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box">
-              <i class="fa-regular fa-address-card"></i>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">CV</p>
-              <a href="assets/pdf/Resume.pdf" class="contact-link" target="_blank" download>Download</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box">
-              <i class="fa-regular fa-envelope"></i>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:zidniahmeed@gmail.com" class="contact-link">zidniahmeed@gmail.com</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box">
-              <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>East Java, Indonesia</address>
-            </div>
-          </li>
-        </ul>
-        <div class="separator"></div>
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://github.com/zidniahmeed" target="_blank" class="social-link" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/ahmad-zidni-rosadi-1227121a9/" target="_blank" class="social-link"
-              aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://x.com/RosadiZidni" target="_blank" class="social-link" aria-label="X (Twitter)">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://www.instagram.com/hadzidn/" target="_blank" class="social-link" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-    <!-- Main Content -->
-    <div class="main-content">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Mentoring</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-        </ul>
-      </nav>
-      <!-- About Section -->
-      <article class="about active" data-page="about">
-        <header>
-          <h2 class="h2 article-title">About Me</h2>
-        </header>
-        <section class="about-text">
-          <p>
-            Hi! I'm Ahmad Zidni Rosadi, a passionate Web Developer and Laravel specialist based in Blitar, Indonesia. I
-            thrive on learning and working with new technologies, and have hands-on experience with Laravel, Vue.js,
-            React, jQuery, HTML, CSS, and JavaScript. My goal is to become a <strong>Full Stack Web Developer</strong>
-            and deliver impactful digital solutions.
-          </p>
-        </section>
-        <!-- Services -->
-        <section class="service">
-          <h3 class="h3 service-title">What I Do</h3>
-          <ul class="service-list">
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="assets/images/about/icons8-www-100.webp" alt="Web development icon" width="50" />
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web Development</h4>
-                <p class="service-item-text">
-                  I help companies achieve their digital goals by building reliable and scalable web solutions,
-                  primarily using Laravel, Vue.js, Bootstrap, and JavaScript.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="assets/images/about/icons8-backend-100.webp" alt="Backend development icon" width="50" />
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Backend Development</h4>
-                <p class="service-item-text">
-                  I specialize in backend development, leveraging my expertise in PHP, Laravel, and JavaScript to create
-                  robust APIs and scalable server-side applications.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="assets/images/about/icons8-frontend-100.webp" alt="Frontend development icon" width="40" />
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Frontend Development</h4>
-                <p class="service-item-text">
-                  I craft responsive, interactive, and user-centric web interfaces using JavaScript, Vue, React, HTML,
-                  and jQuery.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="assets/images/about/icons8-mobile-app-100.webp" alt="Mobile development icon" width="45" />
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile Development</h4>
-                <p class="service-item-text">
-                  I'm expanding my expertise into mobile development, focusing on Flutter and exploring Swift to build
-                  high-quality native and cross-platform mobile apps.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <!-- Testimonials Modal (placeholder for future testimonials) -->
-        <div class="modal-container" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="assets/images/testimonials/avatar-1.png" alt="Name" width="80" data-modal-img />
-              </figure>
-              <img src="assets/images/testimonials/icon-quote.svg" alt="quote icon" />
-            </div>
-            <div class="modal-content">
-              <h4 class="h3 modal-title" data-modal-name>Name</h4>
-              <h4 class="h5 modal-title" data-modal-title>Title</h4>
-              <div data-modal-text>
-                <p>Description</p>
-              </div>
-            </div>
-          </section>
-        </div>
-        <!-- Companies -->
-        <section class="clients">
-          <h3 class="h3 clients-title">Companies I've Worked With</h3>
-          <ul class="clients-list has-scrollbar">
-            <li class="clients-item">
-              <img src="assets/images/clients/udacoding.webp" alt="Udacoding" />
-            </li>
-            <li class="clients-item">
-              <img src="assets/images/clients/jsh.webp" alt="LCP Buildsoft Technology (M) Sdn Bhd" />
-            </li>
-            <li class="clients-item">
-              <img src="assets/images/clients/talamidev.webp" alt="Talamidz Developer" />
-            </li>
-            <li class="clients-item">
-              <img src="assets/images/clients/joki.webp" alt="Perintis Kode Global" />
-            </li>
-          </ul>
-        </section>
-      </article>
-      <!-- Resume Section -->
-      <article class="resume" data-page="resume">
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-        <!-- Education -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            <h3 class="h3">Education</h3>
-          </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">SMK Darussalam</h4>
-              <span>2015 — 2018</span>
-              <p class="timeline-text">
-                Graduated from the Computer and Network Engineering program, actively participating in various
-                activities and gaining valuable experience.
-              </p>
-            </li>
-          </ol>
-        </section>
-        <!-- Experience -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <i class="fa-solid fa-code"></i>
-            </div>
-            <h3 class="h3">Experience</h3>
-          </div>
-          <ol class="timeline-list" id="experience-list">
-            <!-- Experience items will be rendered here -->
-          </ol>
-        </section>
-        <!-- Skills -->
-        <section class="clients">
-          <h3 class="h3 clients-title">Skills</h3>
-          <div class="skills-badges">
-            <span class="badge">HTML</span>
-            <span class="badge">CSS</span>
-            <span class="badge">Bootstrap</span>
-            <span class="badge">Tailwind</span>
-            <span class="badge">PHP</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">jQuery</span>
-            <span class="badge">Laravel</span>
-            <span class="badge">Vue</span>
-            <span class="badge">React</span>
-            <span class="badge">Git</span>
-            <span class="badge">GitHub</span>
-            <span class="badge">Postman</span>
-            <span class="badge">Swagger UI</span>
-            <span class="badge">Insomnia REST Client</span>
-          </div>
-        </section>
-        <!-- Certificates -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <i class="fa-solid fa-medal"></i>
-            </div>
-            <h3 class="h3">Certificates & Participation</h3>
-          </div>
-          <ol class="timeline-list" id="certificates-list">
-            <!-- Certificates items will be rendered here -->
-          </ol>
-        </section>
-      </article>
-      <!-- Mentoring Section -->
-      <article class="mentoring" data-page="mentoring">
-        <header>
-          <h2 class="h2 article-title">Mentoring</h2>
-        </header>
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <i class="fa-solid fa-chalkboard-user"></i>
-            </div>
-            <h3 class="h3">Mentoring Experience</h3>
-          </div>
-          <ol class="timeline-list" id="mentoring-list">
-            <!-- Mentoring items will be rendered here -->
-          </ol>
-        </section>
-      </article>
-      <!-- Portfolio Section -->
-      <article class="portfolio" data-page="portfolio">
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
-        </header>
-        <section class="projects">
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn data-category="all">All</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn data-category="company">Company</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn data-category="personal">Personal</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn data-category="freelance">Freelance</button>
-            </li>
-          </ul>
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <i class="fa-solid fa-chevron-down"></i>
-              </div>
-            </button>
-            <ul class="select-list">
-              <li class="select-item">
-                <button data-select-item data-category="all">All</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item data-category="personal">Personal</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item data-category="company">Company</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item data-category="freelance">Freelance</button>
-              </li>
-            </ul>
-          </div>
-          <ul class="project-list" id="project-list">
-            <!-- Project items will be rendered here -->
-          </ul>
-        </section>
-      </article>
+<body class="bg-[#FAF9F6] text-zinc-900 font-sans selection:bg-indigo-500 selection:text-zinc-900 antialiased relative">
+
+  <!-- Neo-Brutalist Grid Background -->
+  <div class="fixed inset-0 z-[-1] pointer-events-none bg-[#FAF9F6]">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#18181b15_1px,transparent_1px),linear-gradient(to_bottom,#18181b15_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+  </div>
+
+
+  
+
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-[#FAF9F6] border-b-2 border-zinc-900 shadow-[0_4px_0_0_#18181b]">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-serif font-bold tracking-wider text-zinc-900">AZR.</a>
+      <ul class="hidden xl:flex gap-8 text-sm font-medium tracking-widest uppercase text-zinc-700">
+        <li><a href="#about" class="hover:text-brand transition-colors">About</a></li>
+        <li><a href="#experience" class="hover:text-brand transition-colors">Experience</a></li>
+        <li><a href="#mentoring" class="hover:text-brand transition-colors">Mentoring</a></li>
+        <li><a href="#projects" class="hover:text-brand transition-colors">Projects</a></li>
+        <li><a href="#contact" class="hover:text-brand transition-colors">Contact</a></li>
+      </ul>
     </div>
-  </main>
-  <!-- Load all data arrays and logic in one file for GitHub Pages compatibility -->
-  <script>
-    // Data: Experience
-    const experienceData = [
-      {
-        title: "Intern at Udacoding",
-        location: "Tangerang, Indonesia",
-        date: "Mar 2022 – Sep 2022",
-        desc: `- Authored <strong>10+ technical articles</strong> for Baraja Udacoding over 6 months, strengthening backend learning resources.<br>
-- Co-organized <strong>5+ offline workshops</strong> in Sabah, Malaysia, training <strong>30–50 participants per session</strong>.`
-      },
-      {
-        title: "Web Developer at Udacoding",
-        location: "Tangerang, Indonesia",
-        date: "Sep 2022 – May 2025",
-        desc: `- Developed <strong>RESTful APIs and web dashboards</strong> using Laravel for internal and client applications.<br>
-- Improved development turnaround time by <strong>30–40%</strong> through reusable backend components.<br>
-- Mentored <strong>20–40 trainees per cohort</strong> in backend fundamentals and API development.`
-      },
-      {
-        title: "Backend Developer (Freelance) at Unity",
-        location: "Remote",
-        date: "Aug 2022 – Dec 2022",
-        desc: `- Collaborated with a small team to build <strong>backend APIs and management dashboards</strong> for mobile applications.<br>
-- Implemented <strong>real-time chat systems using WebSockets</strong> with sub-second message delivery.`
-      },
-      {
-        title: "Backend Developer (Freelance) at Udacoding × RideRunner",
-        location: "Sabah, Malaysia",
-        date: "Aug 2023 – Jan 2024",
-        desc: `- Developed <strong>APIs and admin dashboards</strong> for an e-hailing and delivery platform.<br>
-- Supported <strong>driver management, order tracking, and daily operational workflows</strong>.`
-      },
-      {
-        title: "Web Developer (Freelance) at Udacoding × LCP Buildsoft Technology (M) Sdn Bhd",
-        location: "Selangor, Malaysia",
-        date: "Jul 2023 – Sep 2023",
-        desc: `- Enhanced <strong>Nastah dashboard</strong> using Laravel, jQuery, and DataTables.<br>
-- Reduced manual reporting time by <strong>40–50%</strong>.<br>
-- Implemented <strong>map integration, CSV/Excel import-export, live search, and RBAC</strong>.`
-      },
-      {
-        title: "Full Stack Developer (Remote) at Udacoding × MIG",
-        location: "Jakarta, Indonesia",
-        date: "Dec 2022 – Aug 2023",
-        desc: `- Improved enterprise dashboard performance and data visibility using Laravel and DataTables.<br>
-- Reduced admin processing time through <strong>automated imports, live search, and role-based permissions</strong>.`
-      },
-      {
-        title: "Full Stack Developer (Remote) at Udacoding × BPD Desa IT",
-        location: "Indonesia",
-        date: "Sep 2023 – Dec 2024",
-        desc: `- Built <strong>landing page and admin dashboard</strong> as an end-to-end project.<br>
-- Accelerated content updates by <strong>3–4×</strong> using API-driven and AJAX-based CRUD operations.`
-      },
-      {
-        title: "Full Stack Developer (Remote) at Perintis Kode Global (Jokiweb)",
-        location: "Palembang, Indonesia",
-        date: "May 2025 – Oct 2025",
-        desc: `- Built websites from scratch using <strong>Laravel, CodeIgniter 3 & 4, and PHP</strong>.<br>
-- Delivered SEO-ready web solutions supporting business visibility and online presence.`
-      },
-      {
-        title: "Frontend Developer (Freelance) at Java Inspiration",
-        location: "London, UK (Remote)",
-        date: "Sep 2025 – Present",
-        desc: `- Developed frontend features for enterprise clients across <strong>e-commerce and data-processing systems</strong>.<br>
-- Collaborated with UK and Indonesia teams to deliver projects on schedule.`
-      }
-    ];
+  </nav>
 
-    // Data: Certificates
-    const certificatesData = [
-    {
-      title: "Full-Stack Laravel React JS: Build Streaming Website Like Netflix",
-      url: "assets/pdf/certs/full-stack-laravel-react-js-build-streaming-website-like-netflix-ahmad-zidni-rosadi.pdf"
-    },
-    {
-      title: "Belajar Membuat Aplikasi Web dengan React",
-      url: "https://www.dicoding.com/certificates/1RXY2Y1G3XVM"
-    },
-    {
-      title: "Belajar Dasar Pemrograman Web",
-      url: "https://www.dicoding.com/certificates/1RXY0WJNKZVM"
-    },
-    {
-      title: "Belajar Dasar Pemrograman JavaScript",
-      url: "https://www.dicoding.com/certificates/0LZ0G3M3RX65"
-    },
-    {
-      title: "Bootcamp Full-Stack Website Developer: Website Doctor Appointment",
-      url: "assets/pdf/certs/bootcamp-full-stack-website-developer-website-doctor-appointment-ahmad-zidni-rosadi.pdf"
-    },
-    {
-      title: "Pemrograman PHP Untuk Semua Level Programmer",
-      url: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-d17c5206-9eb5-4006-ba2a-47070020bdfe.pdf"
-    },
-    {
-      title: "Mastering Flutter 2.0: Membangun Aplikasi Travel dan Pesawat",
-      url: "assets/pdf/certs/mastering-flutter-20-membangun-aplikasi-travel-dan-pesawat-ahmad-zidni-rosadi.pdf"
-    }
-  ];
+  <!-- Mobile Bottom Navigation -->
+  <nav
+    class="xl:hidden fixed bottom-0 left-0 w-full z-50 bg-[#FAF9F6] border-t-2 border-zinc-900 shadow-[0_-4px_0_0_#18181b] pb-2">
+    <ul
+      class="flex justify-around items-center px-2 py-3 text-[0.65rem] font-medium tracking-widest uppercase text-zinc-700">
+      <li><a href="#about" class="flex flex-col items-center gap-1.5 hover:text-brand transition-colors"><i
+            class="fa-solid fa-user text-lg"></i><span>About</span></a></li>
+      <li><a href="#experience" class="flex flex-col items-center gap-1.5 hover:text-brand transition-colors"><i
+            class="fa-solid fa-briefcase text-lg"></i><span>Exp</span></a></li>
+      <li><a href="#mentoring" class="flex flex-col items-center gap-1.5 hover:text-brand transition-colors"><i class="fa-solid fa-chalkboard-user text-lg"></i><span>Mentor</span></a></li>
+      <li><a href="#projects" class="flex flex-col items-center gap-1.5 hover:text-brand transition-colors"><i class="fa-solid fa-code text-lg"></i><span>Work</span></a></li>
+      <li><a href="#contact" class="flex flex-col items-center gap-1.5 hover:text-brand transition-colors"><i
+            class="fa-solid fa-envelope text-lg"></i><span>Contact</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="min-h-screen flex items-center pt-20 pb-24 xl:pb-0 px-6 max-w-7xl mx-auto">
+    <div class="flex flex-col xl:flex-row items-center gap-12 w-full">
+      <div class="flex-1 space-y-8">
+        <h1 class="hero-title text-5xl md:text-7xl font-serif leading-tight">
+          Crafting digital<br><span class="text-brand italic">experiences.</span>
+        </h1>
+        <p class="hero-subtitle text-lg text-zinc-700 max-w-lg">
+          I'm Ahmad Zidni Rosadi, a Full Stack Developer specializing in Laravel, Vue, and React. I build scalable
+          applications and lead technical teams.
+        </p>
+        <div class="hero-cta flex gap-4">
+          <a href="#projects"
+            class="px-6 py-3 rounded-full bg-brand text-white font-medium md:font-semibold lg:font-extrabold uppercase tracking-wide hover:bg-indigo-700 hover:-translate-y-1 transition-all
+            text-sm md:text-lg lg:text-xl
+            font-sans md:font-serif lg:font-mono
+            ">View
+            My Work</a>
+          <a href="assets/pdf/Resume.pdf" target="_blank"
+            class="px-6 py-3 rounded-full border border-[#D4D4D4] text-zinc-900 font-medium md:font-semibold lg:font-extrabold uppercase tracking-wide hover:border-brand hover:text-brand hover:-translate-y-1 transition-all
+            text-sm md:text-lg lg:text-xl
+            font-sans md:font-serif lg:font-mono
+            ">Download
+            CV</a>
+        </div>
+      </div>
+      <div class="hero-visual flex-1 flex justify-center xl:justify-end">
+        <div class="avatar-container relative w-full max-w-md">
+          <img src="assets/images/my-avatar.webp" alt="Ahmad Zidni Rosadi"
+            class="avatar relative z-10 filter grayscale-0 xl:grayscale xl:hover:grayscale-0 transition-all duration-500 w-full object-cover border-4 border-zinc-900 shadow-[12px_12px_0_0_#18181b]">
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+
+  <!-- About Section -->
+  <section id="about" class="py-32 px-6 relative">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="flex items-center gap-4 mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tight text-zinc-900 bg-lime-400 inline-block px-4 py-2 border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b]">About Me</h2>
+        <div class="h-1 bg-zinc-900 flex-1"></div>
+      </div>
+      <div class="about-grid grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div class="about-text lg:col-span-3 space-y-6 text-lg text-zinc-700 leading-relaxed">
+          <p>As a Results-driven Software Developer with over 4 years of experience, I build scalable web and mobile
+            applications. My expertise spans Laravel, ReactJS, and Flutter, complemented by strong backend proficiency
+            in Python and Java.</p>
+          <p>I have a proven track record in architecting robust APIs, real-time WebSocket integrations, and
+            cross-platform solutions for enterprise clients across Indonesia and Malaysia.</p>
+        </div>
+        <div class="about-stats lg:col-span-2 grid grid-cols-2 gap-6 relative">
+          <div
+            class="stat-item p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-[#E5E5E5] text-center relative overflow-hidden group">
+            <div
+              class="absolute inset-0 bg-brand/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+            </div>
+            <h3 class="stat-num text-4xl font-serif text-brand mb-2 relative z-10">4+</h3>
+            <p class="text-sm text-zinc-700 uppercase tracking-widest relative z-10">Years Exp</p>
+          </div>
+          <div
+            class="stat-item p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-[#E5E5E5] text-center relative overflow-hidden group">
+            <div
+              class="absolute inset-0 bg-brand/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+            </div>
+            <h3 class="stat-num text-4xl font-serif text-brand mb-2 relative z-10">20+</h3>
+            <p class="text-sm text-zinc-700 uppercase tracking-widest relative z-10">Projects</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="tech-stack" class="py-24 px-6 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="flex items-center gap-4 mb-16 justify-end">
+        <div class="h-1 bg-zinc-900 flex-1"></div>
+        <h2 class="text-4xl font-black uppercase tracking-tight text-zinc-900 bg-orange-400 inline-block px-4 py-2 border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b]">My Tech Stack</h2>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3 md:gap-8 tech-icons">
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-laravel-original text-2xl md:text-4xl xl:text-7xl text-red-500 xl:text-zinc-500 xl:group-hover:text-red-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Laravel</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-vuejs-plain text-2xl md:text-4xl xl:text-7xl text-indigo-600 xl:text-zinc-500 xl:group-hover:text-indigo-600 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Vue.js</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-react-original text-2xl md:text-4xl xl:text-7xl text-sky-400 xl:text-zinc-500 xl:group-hover:text-sky-400 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">React</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-flutter-plain text-2xl md:text-4xl xl:text-7xl text-blue-400 xl:text-zinc-500 xl:group-hover:text-blue-400 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Flutter</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-python-plain text-2xl md:text-4xl xl:text-7xl text-yellow-400 xl:text-zinc-500 xl:group-hover:text-yellow-400 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Python</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-java-plain text-2xl md:text-4xl xl:text-7xl text-orange-500 xl:text-zinc-500 xl:group-hover:text-orange-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Java</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-mysql-plain-wordmark text-2xl md:text-4xl xl:text-7xl text-blue-500 xl:text-zinc-500 xl:group-hover:text-blue-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">MySQL</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-tailwindcss-original text-2xl md:text-4xl xl:text-7xl text-cyan-400 xl:text-zinc-500 xl:group-hover:text-cyan-400 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Tailwind</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-php-plain text-2xl md:text-4xl xl:text-7xl text-indigo-400 xl:text-zinc-500 xl:group-hover:text-indigo-400 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">PHP</span>
+        </div>
+
+        <!-- Additional Stacks -->
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-nestjs-original text-2xl md:text-4xl xl:text-7xl text-red-600 xl:text-zinc-500 xl:group-hover:text-red-600 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">NestJS</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-express-original text-2xl md:text-4xl xl:text-7xl text-gray-300 xl:text-zinc-500 xl:group-hover:text-gray-300 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">ExpressJS</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-nextjs-plain text-2xl md:text-4xl xl:text-7xl text-zinc-900 xl:text-zinc-500 xl:group-hover:text-black transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">NextJS</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-nuxtjs-plain text-2xl md:text-4xl xl:text-7xl text-indigo-600 xl:text-zinc-500 xl:group-hover:text-indigo-600 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">NuxtJS</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-graphql-plain text-2xl md:text-4xl xl:text-7xl text-pink-500 xl:text-zinc-500 xl:group-hover:text-pink-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">GraphQL</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-postman-plain text-2xl md:text-4xl xl:text-7xl text-orange-500 xl:text-zinc-500 xl:group-hover:text-orange-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Postman</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-insomnia-plain text-2xl md:text-4xl xl:text-7xl text-purple-500 xl:text-zinc-500 xl:group-hover:text-purple-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">Insomnia</span>
+        </div>
+
+        <!-- Databases -->
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-postgresql-plain text-2xl md:text-4xl xl:text-7xl text-blue-400 xl:text-zinc-500 xl:group-hover:text-blue-400 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">PostgreSQL</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-sqlite-plain text-2xl md:text-4xl xl:text-7xl text-sky-300 xl:text-zinc-500 xl:group-hover:text-sky-300 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">SQLite</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-mongodb-plain text-2xl md:text-4xl xl:text-7xl text-green-500 xl:text-zinc-500 xl:group-hover:text-green-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">MongoDB</span>
+        </div>
+
+        <!-- Other Frameworks -->
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-codeigniter-plain text-2xl md:text-4xl xl:text-7xl text-orange-600 xl:text-zinc-500 xl:group-hover:text-orange-600 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">CodeIgniter
+            3</span>
+        </div>
+        <div class="tech-item flex flex-col items-center gap-4 group">
+          <i
+            class="devicon-codeigniter-plain text-2xl md:text-4xl xl:text-7xl text-orange-500 xl:text-zinc-500 xl:group-hover:text-orange-500 transition-colors duration-300 transform xl:group-hover:-translate-y-2"></i>
+          <span
+            class="text-xs xl:text-sm font-semibold tracking-wider text-zinc-900 xl:text-zinc-600 xl:group-hover:text-black transition-colors">CodeIgniter
+            4</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline Section -->
+  <section id="experience" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tight text-zinc-900 bg-amber-400 inline-block px-4 py-2 border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b]">Professional Experience</h2>
+        <div class="h-1 bg-zinc-900 flex-1"></div>
+      </div>
+      <div class="timeline border-l-2 border-[#E5E5E5] pl-8 ml-4 space-y-12" id="experience-list">
+        <!-- Skeleton Loading -->
+        <div class="timeline-item animate-pulse">
+          <div class="h-6 bg-neutral-800 rounded w-1/3 mb-2"></div>
+          <div class="h-4 bg-neutral-800 rounded w-1/4 mb-4"></div>
+          <div class="h-16 bg-neutral-800 rounded w-full"></div>
+        </div>
+        <div class="timeline-item animate-pulse">
+          <div class="h-6 bg-neutral-800 rounded w-1/3 mb-2"></div>
+          <div class="h-4 bg-neutral-800 rounded w-1/4 mb-4"></div>
+          <div class="h-16 bg-neutral-800 rounded w-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-    // Data: Mentoring
-    const mentoringData = [
-      {
-        title: "Practical Workshop: School Website Landing Page with Laravel",
-        role: "Instructor",
-        date: "Jul 19, 2022",
-        desc: `Taught <strong>Laravel 9 fundamentals</strong>, Blade templating, routing, and Bootstrap-based landing page development.<br>
-<strong>Impact:</strong> Trained <strong>50+ participants</strong> in hands-on web development.<br>
-<a href="https://www.instagram.com/p/CgB8eMmLLYe/?hl=id" target="_blank">View Activity</a>`
-      },
-      {
-        title: "Workshop Jago Coding #27 (Web)",
-        role: "Instructor",
-        date: "Jun 25, 2022",
-        desc: `Delivered training on <strong>Laravel CRUD</strong>, controllers, models, migrations, and MySQL integration.<br>
-<strong>Impact:</strong> Guided <strong>6 participants</strong> through backend fundamentals.<br>
-<a href="https://www.instagram.com/p/Ce8yQzPP51q/?hl=id" target="_blank">View Activity</a>`
-      },
-      {
-        title: "E-Course Video: Warehouse Management System (PHP & MySQL)",
-        role: "Course Creator",
-        date: "2022",
-        desc: `Created structured video course covering <strong>PHP backend logic</strong>, database design, and CRUD workflows.<br>
-<strong>Impact:</strong> Produced <strong>on-demand learning content</strong> for paid participants.<br>
-<a href="https://hello.udacoding.id/events/88/membuat-web-management-gudang-dengan-php-&-database-mysql-[berbayar]?status=FINISHED" target="_blank">View Activity</a>`
-      },
-      {
-        title: "Coding Talk #167 (Web)",
-        role: "Speaker",
-        date: "Apr 17, 2022",
-        desc: `Presented <strong>HTML & CSS fundamentals</strong>, CSS variables, layout basics, and file navigation.<br>
-<strong>Impact:</strong> Educated <strong>20 attendees</strong> in frontend fundamentals.<br>
-<a href="https://www.instagram.com/p/CcTWb6khsoI/?hl=id" target="_blank">View Activity</a>`
-      },
-      {
-        title: "Coedev Training Program",
-        role: "Laravel Trainer",
-        date: "Sep 1–20, 2022",
-        desc: `Conducted <strong>basic to intermediate Laravel training</strong> through guided practice and mentoring sessions.<br>
-<strong>Impact:</strong> Mentored <strong>4 participants</strong> in backend development.<br>
-<a href="https://www.linkedin.com/posts/ahmad-zidni-rosadi-1227121a9_training-programming-laravel-activity-6982886166274486272-btIs" target="_blank">View Activity</a>`
-      },
-      {
-        title: "GonDevTalk #27 (Free Webinar)",
-        role: "Speaker",
-        date: "Dec 4, 2022",
-        desc: `Introduced <strong>Laravel fundamentals</strong> and backend development concepts.<br>
-<strong>Impact:</strong> Reached <strong>20 webinar attendees</strong>.<br>
-<a href="https://www.dicoding.com/events/5175" target="_blank">View Activity</a>`
-      },
-      {
-        title: "Laravel Workshop for RPL Teachers – SMKN 4 Payakumbuh",
-        role: "Trainer",
-        date: "Nov 10–20, 2022",
-        desc: `Delivered <strong>Laravel introduction</strong> for vocational teachers to support curriculum adoption.<br>
-<strong>Impact:</strong> Trained <strong>4 educators</strong>.<br>
-<a href="https://www.instagram.com/p/ClDb3XTrzjW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">View Activity</a>`
-      },
-      {
-        title: "ReactJS Basic Training",
-        role: "Instructor",
-        date: "Dec 19–22, 2022",
-        desc: `Introduced <strong>ReactJS fundamentals</strong>, component-based UI, and basic state management.<br>
-<strong>Impact:</strong> Conducted <strong>1-on-1 intensive training</strong>.<br>
-<a href="https://www.instagram.com/p/CmfxZJTLfDt/?hl=id" target="_blank">View Activity</a>`
-      },
-      {
-        title: "Laravel Basic Training",
-        role: "Instructor",
-        date: "Jan 4–11, 2023",
-        desc: `Delivered <strong>Laravel basics</strong> through structured one-on-one mentoring sessions.<br>
-<strong>Impact:</strong> Provided <strong>personalized backend coaching</strong>.<br>
-<a href="https://www.linkedin.com/feed/update/urn:li:activity:7026061390889054208/" target="_blank">View Activity</a>`
-      },
-      {
-        title: "Sekolah Rakyat Kediri Community Program",
-        role: "Volunteer Tutor",
-        date: "Nov 29, 2025",
-        desc: `Introduced <strong>web development basics</strong> to community learners.<br>
-<strong>Impact:</strong> Educated <strong>30 participants</strong>.<br>
-<a href="https://www.linkedin.com/posts/ahmad-zidni-rosadi-1227121a9_sabtu-29-november-kemarin-saya-berkesempatan-activity-7401034553617870848-c0pu?utm_source=share&utm_medium=member_desktop&rcm=ACoAADCxgyoB7QZnHzzNjVdMqsR13IZsCVf16RA/" target="_blank">View Activity</a>`
-      }
-    ];
-    const projectsData = [
-    // Company
-    {
-      category: "company",
-      url: "https://cool-compass.mycool.id/login",
-      img: "assets/images/portfolio/company1.webp",
-      imgAlt: "Dashboard Admin Cool App",
-      title: "Full Stack Developer on Cool App",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://sys.riderunner.my/login",
-      img: "assets/images/portfolio/company2.webp",
-      imgAlt: "Dashboard admin Ride Runner",
-      title: "Full Stack Developer on RideRunner",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://braingem.lcpsolution.com",
-      img: "assets/images/portfolio/company3.webp",
-      imgAlt: "Dashboard Admin BrainGem",
-      title: "Full Stack Developer on BrainGem",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://xxlspaceshare.com/login",
-      img: "assets/images/portfolio/company4.webp",
-      imgAlt: "Dashboard XXL SpaceShare",
-      title: "Full Stack Developer on XXL SpaceShare",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://econframe.com",
-      img: "assets/images/portfolio/company5.webp",
-      imgAlt: "Dashboard Econframe",
-      title: "Full Stack Developer on Econframe",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://www.mig.co.id",
-      img: "assets/images/portfolio/company6.webp",
-      imgAlt: "Landing Page MIG",
-      title: "Full Stack Developer for MIG Website",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://old.bpd.web.id",
-      img: "assets/images/portfolio/company7.webp",
-      imgAlt: "Landing Page BPD",
-      title: "Full Stack Developer for BPD Website",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://nastah.com.my",
-      img: "assets/images/portfolio/company8.webp",
-      imgAlt: "Landing Page Nastah Industries",
-      title: "Full Stack Developer for Nastah Industries Dashboard",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://budidana.id/?fbclid=PAZXh0bgNhZW0CMTEAAad6CUX1iR0zl8VGT6Trtw1xQqqflCLMmbIcfywExG7yVOVc_4eMrF-L4j8u7A_aem_2MnsvsgnA5nRAm3G0fgfeg",
-      img: "assets/images/portfolio/company9.webp",
-      imgAlt: "Budidana Website",
-      title: "Backend Developer for Budidana",
-      desc: "Company Project"
-    },
-    // Personal
-    {
-      category: "personal",
-      url: "https://absensi.zidniahmeed.my.id/",
-      img: "assets/images/portfolio/personal7.webp",
-      imgAlt: "Absensi Murid",
-      title: "Saas Absensi Murid",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://undangan-online.zidniahmeed.my.id/",
-      img: "assets/images/portfolio/personal8.webp",
-      imgAlt: "Website Jualan Undangan Online",
-      title: " Website Jualan Undangan Online",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://github.com/zidniahmeed/moonton?tab=readme-ov-file",
-      img: "assets/images/portfolio/personal1.webp",
-      imgAlt: "MoontoN App, Streaming Application",
-      title: "MoontoN App, Streaming Application",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://github.com/zidniahmeed/Rest-api-express",
-      img: "assets/images/portfolio/personal2.webp",
-      imgAlt: "REST API ExpressJS",
-      title: "REST API ExpressJS",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://github.com/zidniahmeed/absensi_guru",
-      img: "assets/images/portfolio/personal4.webp",
-      imgAlt: "Absensi Guru with Photo & Geo Location",
-      title: "Absensi Guru with Photo & Geo Location",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://mashlahah.roudlotussalam.com",
-      img: "assets/images/portfolio/personal3.webp",
-      imgAlt: "Maslahah Website Sedekah Masjid",
-      title: "Maslahah Website Sedekah Masjid",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://github.com/zidniahmeed/absensi_karyawan_barcode",
-      img: "assets/images/portfolio/personal5.webp",
-      imgAlt: "Absensi Karyawan with QR Code & GPS",
-      title: "Absensi Karyawan with QR Code & GPS",
-      desc: "Personal Project"
-    },
-    {
-      category: "personal",
-      url: "https://github.com/zidniahmeed/aplikasi_absensi_karyawan",
-      img: "assets/images/portfolio/personal6.webp",
-      imgAlt: "Absensi Karyawan Mobile View",
-      title: "Absensi Karyawan Mobile View",
-      desc: "Personal Project"
-    },
-    // Freelance
-    {
-      category: "freelance",
-      url: "https://ci4pendaftaranseminar.jokifigma.cloud",
-      img: "assets/images/portfolio/freelance1.webp",
-      imgAlt: "Website Seminar",
-      title: "Website Seminar",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://laravelpertaminatukarpoin.jokifigma.cloud/home",
-      img: "assets/images/portfolio/freelance2.webp",
-      imgAlt: "Website Pertamina Tukar Point",
-      title: "Website Pertamina Tukar Point",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://laravellaporanpertamina.my.id",
-      img: "assets/images/portfolio/freelance3.webp",
-      imgAlt: "Agen Reporting Hub Pertamina",
-      title: "Agen Reporting Hub Pertamina",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://ci3inventorieoq.jokifigma.cloud",
-      img: "assets/images/portfolio/freelance4.webp",
-      imgAlt: "Website Untuk Inventory Gudang Menggunakan CI4",
-      title: "Website Untuk Inventory Gudang Menggunakan CI4",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://sipkk.jokifigma.cloud",
-      img: "assets/images/portfolio/freelance5.webp",
-      imgAlt: "Website Untuk Informasi PKK",
-      title: "Website Untuk Informasi PKK",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://laravellaporanpertamina.my.id",
-      img: "assets/images/portfolio/freelance6.webp",
-      imgAlt: "Website Kasir Kecantikan",
-      title: "Website Kasir Kecantikan",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://ci4seminarproposal.jokifigma.cloud",
-      img: "assets/images/portfolio/freelance7.webp",
-      imgAlt: "Website Untuk Mengajukan Permohonan Proposal Mahasiswa",
-      title: "Website Untuk Mengajukan Permohonan Proposal Mahasiswa",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://pengajuankaryawan.jokifigma.cloud/",
-      img: "assets/images/portfolio/freelance8.webp",
-      imgAlt: "Website Untuk Mengajukan Permohonan Karyawan",
-      title: "Website Untuk Mengajukan Permohonan Karyawan",
-      desc: "Freelance"
-    },
-    {
-      category: "freelance",
-      url: "https://honorarium.jokifigma.cloud/index.php/home",
-      img: "assets/images/portfolio/freelance9.webp",
-      imgAlt: "Website Untuk Mengajukan Honor Dosen",
-      title: "Website Untuk Mengajukan Honor Dosen",
-      desc: "Freelance"
-    },
+  <!-- Mentoring Section -->
+  <section id="mentoring" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tight text-zinc-900 bg-fuchsia-400 inline-block px-4 py-2 border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b]">Mentoring</h2>
+        <div class="h-1 bg-zinc-900 flex-1"></div>
+      </div>
+      <div class="mentoring-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="mentoring-list">
+        <!-- Skeleton Loading -->
+        <div class="p-6 bg-white border-2 border-zinc-900 shadow-[4px_4px_0_0_#e4e4e7] animate-pulse space-y-4">
+          <div class="h-6 bg-neutral-800 rounded w-3/4"></div>
+          <div class="h-4 bg-neutral-800 rounded w-1/2"></div>
+          <div class="h-16 bg-neutral-800 rounded w-full"></div>
+        </div>
+        <div class="p-6 bg-white border-2 border-zinc-900 shadow-[4px_4px_0_0_#e4e4e7] animate-pulse space-y-4">
+          <div class="h-6 bg-neutral-800 rounded w-3/4"></div>
+          <div class="h-4 bg-neutral-800 rounded w-1/2"></div>
+          <div class="h-16 bg-neutral-800 rounded w-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    {
-      category: "company",
-      url: "https://gfe.gaia-ol.com/",
-      img: "assets/images/portfolio/company10.webp",
-      imgAlt: "Landing Page Nastah Industries",
-      title: "Front End  Developer for Global Fire",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://loopli.gaia-ol.com/",
-      img: "assets/images/portfolio/company11.webp",
-      imgAlt: "Landing Page Looply",
-      title: "Front End  Developer for Looply",
-      desc: "Company Project"
-    },
+  <!-- Projects Section -->
+  <section id="projects" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-16">
+        <h2 class="text-4xl font-black uppercase tracking-tight text-zinc-900 bg-cyan-400 inline-block px-4 py-2 border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b]">Projects</h2>
+        <div class="h-1 bg-zinc-900 flex-1"></div>
+      </div>
 
-    {
-      category: "company",
-      url: "https://absolutely.gaia-ol.com/",
-      img: "assets/images/portfolio/company12.webp",
-      imgAlt: "Landing Page Absolutely",
-      title: "Front End  Developer for Absolutely",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://sts.gaia-ol.com/",
-      img: "assets/images/portfolio/company13.webp",
-      imgAlt: "Landing Page STS",
-      title: "Front End Developer for STS",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://dcs.gaia-ol.com/",
-      img: "assets/images/portfolio/company14.webp",
-      imgAlt: "Landing Page DCS",
-      title: "Front End Developer for DCS",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://staging.gaia-ol.com/",
-      img: "assets/images/portfolio/company15.webp",
-      imgAlt: "Landing Page GAIA OL",
-      title: "Front End Developer for GAIA OL",
-      desc: "Company Project"
-    },
-    {
-      category: "company",
-      url: "https://olley.gaia-ol.com/",
-      img: "assets/images/portfolio/company16.webp",
-      imgAlt: "Landing Page Olley",
-      title: "Front End Developer for Olley",
-      desc: "Company Project"
-    },
+      <div class="project-filters flex flex-wrap gap-4 mb-12">
+        <button
+          class="filter-btn active px-6 py-2 bg-indigo-500 text-white font-bold border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b] transition-all"
+          data-filter="all">ALL PROJECTS</button>
+        <button class="filter-btn px-6 py-2 bg-white text-zinc-900 font-bold border-2 border-zinc-900 shadow-[2px_2px_0_0_#18181b] hover:shadow-[4px_4px_0_0_#18181b] hover:-translate-y-0.5 transition-all"
+          data-filter="company">COMPANY</button>
+        <button class="filter-btn px-6 py-2 bg-white text-zinc-900 font-bold border-2 border-zinc-900 shadow-[2px_2px_0_0_#18181b] hover:shadow-[4px_4px_0_0_#18181b] hover:-translate-y-0.5 transition-all"
+          data-filter="freelance">FREELANCE</button>
+        <button class="filter-btn px-6 py-2 bg-white text-zinc-900 font-bold border-2 border-zinc-900 shadow-[2px_2px_0_0_#18181b] hover:shadow-[4px_4px_0_0_#18181b] hover:-translate-y-0.5 transition-all"
+          data-filter="personal">PERSONAL</button>
+      </div>
 
-   
-   
-    
-  ];
-  </script>
+      <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-list">\n
+        <!-- Skeleton Loading -->
+        <div class="relative block animate-pulse">
+          <div class="w-full h-72 bg-zinc-200 border-2 border-zinc-200"></div>
+          <div class="relative -mt-12 mx-4 bg-white border-2 border-zinc-200 p-6 shadow-[6px_6px_0_0_#e4e4e7]">
+            <div class="h-6 w-3/4 bg-zinc-200 mb-4"></div>
+            <div class="h-4 w-full bg-zinc-100 mb-2"></div>
+            <div class="h-4 w-5/6 bg-zinc-100 mb-6"></div>
+            <div class="pt-4 border-t-2 border-zinc-100 border-dashed flex gap-2">
+              <div class="h-4 w-16 bg-zinc-100 border border-zinc-200"></div>
+              <div class="h-4 w-20 bg-zinc-100 border border-zinc-200"></div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Skeleton Loading -->
+        <div class="relative block animate-pulse">
+          <div class="w-full h-72 bg-zinc-200 border-2 border-zinc-200"></div>
+          <div class="relative -mt-12 mx-4 bg-white border-2 border-zinc-200 p-6 shadow-[6px_6px_0_0_#e4e4e7]">
+            <div class="h-6 w-3/4 bg-zinc-200 mb-4"></div>
+            <div class="h-4 w-full bg-zinc-100 mb-2"></div>
+            <div class="h-4 w-5/6 bg-zinc-100 mb-6"></div>
+            <div class="pt-4 border-t-2 border-zinc-100 border-dashed flex gap-2">
+              <div class="h-4 w-16 bg-zinc-100 border border-zinc-200"></div>
+              <div class="h-4 w-20 bg-zinc-100 border border-zinc-200"></div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Skeleton Loading -->
+        <div class="relative block animate-pulse">
+          <div class="w-full h-72 bg-zinc-200 border-2 border-zinc-200"></div>
+          <div class="relative -mt-12 mx-4 bg-white border-2 border-zinc-200 p-6 shadow-[6px_6px_0_0_#e4e4e7]">
+            <div class="h-6 w-3/4 bg-zinc-200 mb-4"></div>
+            <div class="h-4 w-full bg-zinc-100 mb-2"></div>
+            <div class="h-4 w-5/6 bg-zinc-100 mb-6"></div>
+            <div class="pt-4 border-t-2 border-zinc-100 border-dashed flex gap-2">
+              <div class="h-4 w-16 bg-zinc-100 border border-zinc-200"></div>
+              <div class="h-4 w-20 bg-zinc-100 border border-zinc-200"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="py-32 px-6 border-t border-[#E5E5E5] text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tight text-zinc-900 bg-yellow-300 inline-block px-6 py-4 border-4 border-zinc-900 shadow-[8px_8px_0_0_#18181b] mb-12 -rotate-2">LET'S WORK TOGETHER.</h2>
+      <a href="mailto:zidniahmeed@gmail.com"
+        class="text-2xl md:text-4xl font-bold bg-white text-zinc-900 border-2 border-zinc-900 shadow-[4px_4px_0_0_#18181b] hover:shadow-[2px_2px_0_0_#18181b] hover:translate-x-1 hover:translate-y-1 transition-all px-6 py-3 inline-block mb-16">zidniahmeed@gmail.com</a>
+
+      <div class="flex justify-center gap-8 mb-12">
+        <a href="https://github.com/zidniahmeed" target="_blank"
+          class="text-3xl text-zinc-600 hover:text-brand transition-transform hover:scale-110"><i
+            class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ahmad-zidni-rosadi-1227121a9/" target="_blank"
+          class="text-3xl text-zinc-600 hover:text-brand transition-transform hover:scale-110"><i
+            class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/RosadiZidni" target="_blank"
+          class="text-3xl text-zinc-600 hover:text-brand transition-transform hover:scale-110"><i
+            class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/hadzidn/" target="_blank"
+          class="text-3xl text-zinc-600 hover:text-brand transition-transform hover:scale-110"><i
+            class="fa-brands fa-instagram"></i></a>
+      </div>
+
+      <p class="text-zinc-600 text-sm tracking-widest uppercase">&copy; 2026 Ahmad Zidni Rosadi. All rights reserved.
+      </p>
+    </div>
+
+    <!-- Background element -->
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand/5 rounded-full blur-3xl -z-10 pointer-events-none">
+    </div>
+  </footer>
+
+  <!-- Load Data and Logic -->
+  <script src="assets/js/data.js"></script>
   <script src="assets/js/script.js"></script>
+</body>
+
+</html>

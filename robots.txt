@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zidniahmeed.github.io/portfolio/sitemap.xml
